@@ -11,6 +11,7 @@ import numpy as np
 
 dataset = Data("../data/DataSetA/DataSetA-5000.dat")
 dataset.read()
+dataset.update_upper_lower()
 
 visual = Visualize(dataset)
 

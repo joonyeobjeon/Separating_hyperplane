@@ -9,16 +9,20 @@ from opt_hyperplane.solver.optimizer_tools import (make_decision_variable_label,
                                                           make_boundary_list, make_demand_bound)
 import numpy as np
 
-dataset = Data("../data/DataSetB/DataSetB-1000.dat")
+dataset = Data("../data/DataSetB/DataSetB-5000.dat")
 dataset.read()
+dataset.update_upper_lower()
 
 visual = Visualize(dataset)
 
+order = 3
+nofvar = order + 2
 
-d_var = make_decision_variable_label(9)
-object_coeff = [0, 0, 0, 0 , 0 , 0, 0 , 1, 0]
-ub_bound = make_demand_bound(9, 1e19)
-lb_bound = make_demand_bound(9, -1e19)
+d_var = make_decision_variable_label(nofvar)
+object_coeff = [0]*order + [1, 0]
+
+ub_bound = make_demand_bound(nofvar, 1e19)
+lb_bound = make_demand_bound(nofvar, -1e19)
 
 rhs_fare0 = make_fare_rhs_constraint(np.size(dataset.dataset[0], 0), 1.0)
 rhs_fare1 = make_fare_rhs_constraint(np.size(dataset.dataset[1], 0), -1.0)
@@ -27,7 +31,7 @@ c_label = make_constraint_label(np.size(rhs_fare))
 senses0 = make_all_inequality_list(np.size(rhs_fare0), "G")
 senses1 = make_all_inequality_list(np.size(rhs_fare1), "L")
 senses = senses0 + senses1
-lhs_constraint = make_norder_constraint_coeff_lhs_problem2(dataset, 9, 7)
+lhs_constraint = make_norder_constraint_coeff_lhs_problem2(dataset, nofvar, order)
 
 solver = SetSimplex()
 
@@ -46,7 +50,7 @@ solver.solve("solution.lp")
 solver.visualize_solution
 solver.save_solution("solution_result.txt")
 
-visual.set_order(7)
+visual.set_order(order)
 visual.set_coefficient(solver.get_value())
 visual.set_scatter()
 visual.set_plot()
