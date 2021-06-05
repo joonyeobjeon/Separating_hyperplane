@@ -1,0 +1,1 @@
+{"name": "datasetB-1000", "param": {"dataset": "../../data/DataSetB/DataSetB-1000.dat", "order_hyperplane": "3", "lb_bound": "-1e19", "ub_bound": "1e19", "update_upper_lower": "1", "optimize_direction": "minimize", "initialze_solution_filename": "solution.lp", "solution_filename": "solution.result"}}

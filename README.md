@@ -1,4 +1,4 @@
-# Seperate hyperplane with Linear programing
+# Separate hyperplane with Linear programing
 This assignment was made as a term project for the class of Optimal Nonlinear Design for the 2021-1 semester. The goal of this task is to separate the dummy of points using a hyperplane. There are two types of datasets in this task. One can split two dummy with a linear-hperplane and the other can split two dummy with a non-linear-hyperplane.
 ![linear_dummy](./images/Figure_1.png)
 ![nonlinear_dummy](./images/Figure_2.png)
@@ -11,6 +11,7 @@ Before anything else, you must have the cplex-env virtual environment installed.
 
 ```
 # You must be on the enviroment of `cplex`
+pip setup.py install
 pip install -e .
 ```
 
