@@ -10,11 +10,11 @@ from opt_hyperplane.solver.optimizer_tools import (make_decision_variable_label,
 import numpy as np
 order = 5
 nofvar = order + 2
-dataset_name = "../data/DataSetB/DataSetB-5000.dat"
+dataset_name = "../data/DataSetC/DataSetC-10.dat"
 
 dataset = Data(dataset_name)
 dataset.read()
-dataset.update_upper_lower()
+# dataset.update_upper_lower()
 visual = Visualize(dataset)
 
 d_var = make_decision_variable_label(nofvar)

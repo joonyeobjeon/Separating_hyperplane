@@ -9,7 +9,8 @@ from opt_hyperplane.solver.optimizer_tools import (make_decision_variable_label,
                                                           make_boundary_list, make_demand_bound)
 import numpy as np
 
-dataset = Data("../data/DataSetA/DataSetA-5000.dat")
+dataset_name = "../data/DataSetA/DataSetA-5000.dat"
+dataset = Data(dataset_name)
 dataset.read()
 dataset.update_upper_lower()
 
@@ -51,4 +52,5 @@ visual.set_order(1)
 visual.set_coefficient(solver.get_value())
 visual.set_scatter()
 visual.set_plot()
+visual.set_title(dataset_name)
 visual.show_plot()

@@ -32,7 +32,7 @@ class Visualize(object):
     def set_plot(self):
         minx = self.data.get_min_x()
         maxx = self.data.get_max_x()
-        x=np.arange(minx, maxx, (maxx-minx)/2000)
+        x=np.arange(minx, maxx, (maxx-minx) / 2000)
         y=self.get_order_function_value(x)
         plt.plot(x, y)
         
@@ -45,3 +45,6 @@ class Visualize(object):
         plt.xlim([minx, maxx])
         plt.ylim([miny, maxy])
         plt.show()
+    
+    def set_title(self, title: str):
+        plt.title(title)
