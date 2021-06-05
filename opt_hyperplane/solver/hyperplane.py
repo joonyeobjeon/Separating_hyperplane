@@ -16,10 +16,8 @@ from opt_hyperplane.solver.optimizer_tools import (make_decision_variable_label,
 
 
 class HyperPlaneOptimizer(object):
-    def __init__(self, filename, output_solution, output_file):
+    def __init__(self, filename):
         self.filename = filename
-        self.output_expression = output_solution
-        self.output_file = output_file
         self.read_parameters()
         self.initialize()
 
@@ -33,6 +31,8 @@ class HyperPlaneOptimizer(object):
         self.dataset_name = self.params["dataset"]
         self.data = Data(self.dataset_name)
         self.data.read()
+        self.output_expression = self.params["initialze_solution_filename"]
+        self.output_file = self.params["solution_filename"]
         if self.params["update_upper_lower"] == 1:
             print(self.params["update_upper_lower"])
             self.data.update_upper_lower()

@@ -1,4 +1,4 @@
 from opt_hyperplane.solver.hyperplane import HyperPlaneOptimizer
 
-opt = HyperPlaneOptimizer("./datasetA-3000.json", "./solution.lp", "./solution.result")
+opt = HyperPlaneOptimizer("./datasetA-3000.json")
 opt.optimize()
