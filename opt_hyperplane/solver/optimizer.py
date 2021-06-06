@@ -197,4 +197,4 @@ class SetSimplex(object):
             f.write(str(num_solution) + str("\n"))
             for count, id in enumerate(self.decision_var):
                 f.write(str(id) + "     " + str(solution_value[count]) + "\n")
-                
+                                

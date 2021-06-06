@@ -3,6 +3,15 @@ from opt_hyperplane.io.dataset import Data
 
 
 def make_decision_variable_label(nofdecision: int):
+    """Make the decision variable label for cplex optimizer.
+    It is basically named "x0, x1, x2, ..., xn"
+
+    Args:
+        nofdecision (int): Number of decision variables
+
+    Returns:
+        (list): list of name of label
+    """
     var_label = []
     for id in range(nofdecision):
         var_label.append("x"+str(id))
